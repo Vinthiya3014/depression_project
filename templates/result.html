@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f4f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .topnav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #2c3e50;
+            padding: 12px 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .topnav h3 {
+            color: white;
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .topnav .nav-right a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .topnav .nav-right a:hover {
+            color: #1abc9c;
+        }
+
+        .result-container {
+            background: white;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            text-align: center;
+        }
+
+        .result-container h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .result-container p {
+            font-size: 20px;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .result-container .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #2980b9;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .result-container .button:hover {
+            background-color: #1c5980;
+        }
+
+        .feedback-section {
+            max-width: 600px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .feedback-section h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .feedback-section ul {
+            color: #34495e;
+            font-size: 15px;
+            padding-left: 20px;
+        }
+
+        .feedback-section li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="topnav">
+        <div class="nav-left">
+            <h3>STUDENT MENTAL HEALTH PREDICTION</h3>
+        </div>
+        <div class="nav-right">
+            <a href="/templates/index.html">Home</a>
+            <a href="/form">Prediction</a>
+        </div>
+    </div>
+
+    <div class="result-container">
+        <h1>Prediction Result</h1>
+        <p>The student is predicted to be: <strong>{{ result }}</strong></p>
+        <a href="/form" class="button">Predict Again</a>
+    </div>
+
+    {% if feedback %}
+    <div class="feedback-section">
+        <h2>Feedback & Tips</h2>
+        <ul>
+            {% for tip in feedback %}
+                <li>{{ tip }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    
+</body>
+</html>
